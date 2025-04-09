@@ -1,5 +1,7 @@
 const reactDescriptions = ['Fundamental', 'Crucial', 'Core'];
 
+import TabButton from './components/TabComponent.jsx';
+
 function genRandomInt(max) {
   return Math.floor(Math.random() * (max + 1));
 }
@@ -26,6 +28,10 @@ function CoreConcepts(props){
 }
 
 function App() {
+  function selectHandler(selectedButton){
+    console.log("selected",selectedButton);
+  }
+
   return (
     <div>
       <Header />
@@ -48,6 +54,17 @@ function App() {
             description = "Props2 description"
           />
         </ul>
+      </section>
+
+      <section id="examples">
+        <h2>Examples</h2>
+        <menu>
+          <TabButton click={function(){selectHandler('Props')}}>Props</TabButton>
+          <TabButton click={()=>selectHandler('State')}>State</TabButton>
+          <TabButton click={()=>selectHandler('Components')}>Components</TabButton>
+          <TabButton click={()=>selectHandler('React')}>React</TabButton>
+        </menu>
+        Dynamic cONTENT
       </section>
     </div>
   );
